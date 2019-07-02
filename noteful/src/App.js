@@ -137,12 +137,9 @@ class App extends React.Component {
     let notesList = [];
     if(this.state.selectedId){
       notesList = this.state.notes.filter(item => item.folderId === this.state.selectedId);
-    }
-    else {
+    } else {
       notesList = this.state.notes;
     }
-    console.log(`noteslist is ${notesList}`);
-
     return notesList;
   }
   
@@ -150,7 +147,7 @@ class App extends React.Component {
     return (
       <div className="App">
       <Header />
-          <Route path='/' render ={() => <Sidebar folders={this.state.folders} selectID={this.selectID} /> }/>
+          <Route exact path='/' render ={() => <Sidebar folders={this.state.folders} selectID={this.selectID} /> }/>
           <Route path='/:selectedId' render ={() => <Sidebar selectedId={this.state.selectedId} folders={this.state.folders} selectID={this.selectID}/> }/>
       <NoteList notes={this.filteredList}/>
       </div>
