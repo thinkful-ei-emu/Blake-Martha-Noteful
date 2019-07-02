@@ -130,7 +130,6 @@ class App extends React.Component {
 
   selectID  = (id) => {
     this.setState({selectedId: id});
-    console.log(`id changed to ${this.state.selectedId}`);
   }
 
   filteredList = () => {
@@ -147,9 +146,18 @@ class App extends React.Component {
     return (
       <div className="App">
       <Header />
-          <Route exact path='/' render ={() => <Sidebar folders={this.state.folders} selectID={this.selectID} /> }/>
-          <Route path='/:selectedId' render ={() => <Sidebar selectedId={this.state.selectedId} folders={this.state.folders} selectID={this.selectID}/> }/>
-      <NoteList notes={this.filteredList}/>
+
+      <Route exact path='/' render ={() => 
+        <Sidebar folders={this.state.folders} selectID={this.selectID} /> }/>
+      <Route path='/folder/:selectedId' render ={(props) => 
+        <Sidebar selectedId={this.state.selectedId} folders={this.state.folders} 
+        selectID={this.selectID} match={props.match}/> }/>
+      
+      <Route exact path='/' render ={ () =>
+        <NoteList notes={this.state.notes} />} />
+      <Route path='/note/:noteId' render ={(props) =>
+        <NoteList noteId={this.state.notes.id} notes={this.state.notes} 
+        match={props.match}/> } />
       </div>
     );
   }

@@ -1,17 +1,15 @@
 import React from 'react';
-import FolderItem from './folderItem.js';
+//import FolderItem from './folderItem.js';
+import { NavLink } from 'react-router-dom';
+import './sidebar.css';
 
 function Sidebar (props) {
 
-  const sidebarList = props.folders.map((item, index) => 
-    <li key={index}>
-      <FolderItem 
-        selectedId={props.selectedId} 
-        name={item.name} 
-        id={item.id} 
-        index={index} 
-        selectID={props.selectID}
-      />
+  const sidebarList = props.folders.map((item) => 
+    <li key={item.id}>
+    <NavLink to={`/folder/${item.id}`}>
+        {item.name} 
+      </NavLink>
     </li>
   );
 
