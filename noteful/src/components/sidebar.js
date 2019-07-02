@@ -1,7 +1,6 @@
 import React from 'react';
 import FolderItem from './folderItem.js';
 
-
 function Sidebar (props) {
 
   const sidebarList = props.folders.map((item, index) => 

@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/header.js';
 import Sidebar from './components/sidebar.js';
 import NoteList from './components/noteList.js';
+import { Route } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -149,7 +150,10 @@ class App extends React.Component {
     return (
       <div className="App">
       <Header />
-      <Sidebar folders={this.state.folders} selectID={this.selectID}/>
+      <Sidebar>
+          <Route path='/' render ={() => <Sidebar folders={this.state.folders} selectID={this.selectID} /> }/>
+          <Route path='/selectedId' render ={() => <Sidebar selectedId={this.state.selectedId} folders={this.state.folders} selectID={this.selectID}/> }/>
+      </Sidebar>
       <NoteList notes={this.filteredList}/>
       </div>
     );
