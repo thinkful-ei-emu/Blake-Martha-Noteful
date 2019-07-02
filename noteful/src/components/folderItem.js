@@ -2,8 +2,12 @@ import React from 'react';
 
 function FolderItem (props) {
   return (
-    <div>
-      <h3>
+    <div onClick={e => {
+      e.preventDefault();
+      console.log(props.id);
+      props.selectID(props.id);
+      }} >
+      <h3 >
         {props.name}
       </h3>
     </div>

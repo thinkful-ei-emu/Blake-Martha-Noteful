@@ -1,14 +1,14 @@
 import React from 'react';
 import ListItem from './listItem.js' 
-import store from '../store.js';
 
-function NoteList() {
-  const noteList = store.notes.map(note=> 
-    )
 
+function NoteList(props) {
+  const listItems = props.notes().map((item, index) => 
+    <li key={index}><ListItem name={item.name}/></li>
+  );
   return (
     <ul>
-      <ListItem />
+      {listItems}
       <button>Add Note</button>
     </ul>
   )

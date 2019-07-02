@@ -1,18 +1,9 @@
 import React from 'react';
 
-function ListItem () {
+function ListItem (props) {
   return (
     <div>
-      <li>
-        <h2>Note 1</h2>
-        <p>Date modified on blah</p>
-        <button>Delete Note</button>
-      </li>
-      <li>
-        <h2>Note 2</h2>
-        <p>Date modified on blah</p>
-        <button>Delete Note</button>
-      </li>
+      <h1>{props.name}</h1>
     </div>
   )
 }
