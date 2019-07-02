@@ -150,14 +150,12 @@ class App extends React.Component {
       <Route exact path='/' render ={() => 
         <Sidebar folders={this.state.folders} selectID={this.selectID} /> }/>
       <Route path='/folder/:selectedId' render ={(props) => 
-        <Sidebar selectedId={this.state.selectedId} folders={this.state.folders} 
-        selectID={this.selectID} match={props.match}/> }/>
+        <Sidebar selectedId={this.state.selectedId} folders={this.state.folders} selectID={this.selectID} match={props.match}/> }/>
       
       <Route exact path='/' render ={ () =>
         <NoteList notes={this.state.notes} />} />
       <Route path='/note/:noteId' render ={(props) =>
-        <NoteList noteId={this.state.notes.id} notes={this.state.notes} 
-        match={props.match}/> } />
+        <NoteList noteId={this.state.notes.id} notes={this.state.notes} match={props.match}/> } />
       </div>
     );
   }
